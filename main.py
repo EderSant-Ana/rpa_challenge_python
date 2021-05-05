@@ -14,7 +14,7 @@ df = pd.read_excel(file, sheet_name="Sheet1")
 """
 phones = df["Phone Number"].to_list()
 
-#Scraping the RPA Challange Website
+#Scraping the RPA Challenge Website
 
 rpa_challenge_website = "http://www.rpachallenge.com/"
 
@@ -34,8 +34,8 @@ driver.maximize_window()
 start_button = driver.find_element_by_xpath("/html/body/app-root/div[2]/app-rpa1/div/div[1]/div[6]/button")
 start_button.click()
 
-def scrap_rpa_challenge():
-    """Function to scrap the RPA Challange"""
+def scraping_rpa_challenge():
+    """Function to scraping the RPA Challenge"""
     for i in range(len(df)):
         first_name = driver.find_element_by_xpath("//input[@ng-reflect-name='labelFirstName']")
         first_name.send_keys(df["First Name"][i])
@@ -55,7 +55,7 @@ def scrap_rpa_challenge():
         submit_button.click()
 
 
-scrap_rpa_challenge()
+scraping_rpa_challenge()
 
 result = driver.find_element_by_xpath("/html/body/app-root/div[2]/app-rpa1/div/div[2]/div[2]")
 print(result.text)
